@@ -38,24 +38,39 @@ Este tipo de medición ha sido ampliamente utilizado en el monitoreo intraoperat
 
 ## Materiales : 
 
--Computador con acceso a Internet
+- Computador con acceso a Internet
 
--MATLAB
+- MATLAB
 
--Arduino UNO o Nano
+- Arduino UNO o Nano
 
--Regleta de Proto-Board
+- Regleta de Proto-Board
 
--Cables UTP (varios)
+- Cables UTP (varios)
 
--Resistencias de varios valores (aprox. 1 kΩ a 680 kΩ)
+- Resistencias de varios valores (aprox. 1 kΩ a 680 kΩ)
 
--Condensador cerámico o de tántalo (100 nF)
+- Condensador cerámico o de tántalo (100 nF)
 
--Condensador electrolítico (4.7 µF)
+- Condensador electrolítico (4.7 µF)
 
--Transistor 2N3904
+- Transistor 2N3904
 
--Sensor de reflectancia TCRT1000 o acoplador óptico TCST110
+- Sensor de reflectancia TCRT1000 o acoplador óptico TCST110
 
--Amplificador operacional dual LM358
+- Amplificador operacional dual LM358
+
+
+## Procedimiento  : 
+
+- Parte A
+
+En esta etapa se inicia con la construcción del circuito en una Proto-Board, el cual permite capturar las variaciones del volumen sanguíneo periférico mediante un sensor óptico. En caso de emplear un optoacoplador TCST110, este debe ser modificado para que funcione como un sensor de reflectancia, garantizando así la correcta adquisición de la señal fotopletismográfica.
+
+Posteriormente, la salida del circuito se conecta a una de las entradas analógicas de una placa Arduino UNO o Nano. Se verifica la señal obtenida utilizando la herramienta “Serial Plotter”, realizando los ajustes necesarios mediante los potenciómetros para reducir el ruido y mejorar la calidad de la señal. Finalmente, se investiga la técnica conocida como Cold Pressor Test (CPT), con el fin de comprender su funcionamiento y definir cómo será aplicada durante la práctica.
+  
+- Parte B
+
+En esta parte, se realiza una revisión bibliográfica para obtener la definición matemática del índice pletismográfico quirúrgico (SPI), la cual debe ser incluida en el desarrollo del informe. Luego, se diseña e implementa un código en MATLAB capaz de capturar la señal proveniente del circuito, detectar máximos y mínimos de la señal y calcular el SPI en cada latido, mostrando los resultados en la consola.
+
+A continuación, se realiza una medición experimental con un voluntario durante un periodo aproximado de dos minutos. Inicialmente, el sujeto permanece en reposo durante 40 segundos; posteriormente, se aplica el Cold Pressor Test durante otros 40 segundos, y finalmente se permite un periodo de recuperación de 40 segundos. Durante todo el proceso se registran los valores del SPI para analizar su comportamiento ante el estímulo. Finalmente, el código se modifica para generar una gráfica que permita visualizar la evolución del SPI en función del tiempo.
