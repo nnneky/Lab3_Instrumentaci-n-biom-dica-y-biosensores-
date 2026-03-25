@@ -76,3 +76,17 @@ En esta parte, se realiza una revisión bibliográfica para obtener la definici�
 <img width="833" height="422" alt="image" src="https://github.com/user-attachments/assets/931ad521-f2da-4d6b-a30d-cc56a33dd1f7" />
 
 A continuación, se realiza una medición experimental con un voluntario durante un periodo aproximado de dos minutos. Inicialmente, el sujeto permanece en reposo durante 40 segundos; posteriormente, se aplica el Cold Pressor Test durante otros 40 segundos, y finalmente se permite un periodo de recuperación de 40 segundos. Durante todo el proceso se registran los valores del SPI para analizar su comportamiento ante el estímulo. Finalmente, el código se modifica para generar una gráfica que permita visualizar la evolución del SPI en función del tiempo.
+
+## Cold pressure test : 
+
+El Cold Pressor Test (CPT) es una prueba ampliamente utilizada en estudios fisiológicos para inducir una respuesta del sistema nervioso autónomo, particularmente del sistema simpático. Esta consiste en la exposición de una extremidad, generalmente la mano, a bajas temperaturas con el fin de generar un estímulo nociceptivo controlado. Como resultado, se producen cambios fisiológicos como vasoconstricción periférica, aumento de la presión arterial y modificaciones en la señal fotopletismográfica (PPG), lo que permite evaluar la respuesta del organismo ante el estrés.
+
+En el contexto de la señal PPG, el CPT provoca una disminución en la amplitud de la señal debido a la vasoconstricción periférica inducida por el frío. Esto se traduce en variaciones en las características de la onda de pulso, las cuales son utilizadas para el cálculo del índice pletismográfico quirúrgico (SPI). Por lo tanto, esta prueba permite simular una condición de estrés o dolor controlado, facilitando el análisis del comportamiento del SPI ante un estímulo fisiológico.
+
+Para la realización de esta práctica, se empleará un guante de uso doméstico (como los utilizados para lavar los trastes), el cual permitirá contener el medio frío y garantizar una mejor sujeción de la mano del voluntario. El guante será llenado con agua y pequeños fragmentos de hielo, asegurando que la temperatura del sistema se mantenga en un rango aproximado entre 4 °C y 8 °C. Este rango permite generar un estímulo suficiente sin representar un riesgo para el participante.
+ 
+Durante el procedimiento experimental, el voluntario colocará su mano dentro del guante previamente preparado, manteniéndola allí durante un intervalo de tiempo definido (aproximadamente 40 segundos). Mientras se realiza esta exposición al frío, se registrará de manera continua la señal PPG y se calculará el SPI, permitiendo observar las variaciones generadas por el estímulo. Posteriormente, se retirará la mano del guante para permitir la recuperación fisiológica, continuando con la adquisición de datos.
+
+
+
+Este enfoque permite obtener una respuesta más controlada y reproducible del CPT, facilitando la comparación entre condiciones de reposo, estímulo y recuperación dentro del análisis de resultados.
