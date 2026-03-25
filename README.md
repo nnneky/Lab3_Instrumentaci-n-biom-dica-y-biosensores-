@@ -87,6 +87,7 @@ Para la realización de esta práctica, se empleará un guante de uso doméstico
  
 Durante el procedimiento experimental, el voluntario colocará su mano dentro del guante previamente preparado, manteniéndola allí durante un intervalo de tiempo definido (aproximadamente 40 segundos). Mientras se realiza esta exposición al frío, se registrará de manera continua la señal PPG y se calculará el SPI, permitiendo observar las variaciones generadas por el estímulo. Posteriormente, se retirará la mano del guante para permitir la recuperación fisiológica, continuando con la adquisición de datos.
 
+<img width="1062" height="507" alt="image" src="https://github.com/user-attachments/assets/7b84ad42-332c-42f3-a0c7-3bff7d60350a" />
 
 
 Este enfoque permite obtener una respuesta más controlada y reproducible del CPT, facilitando la comparación entre condiciones de reposo, estímulo y recuperación dentro del análisis de resultados.
