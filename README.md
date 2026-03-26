@@ -271,7 +271,67 @@ grid on;
 
 Este código en MATLAB sirve para adquirir, procesar y analizar una señal fotopletismográfica (PPG) en tiempo real desde un Arduino, con el objetivo de detectar los latidos y calcular un índice tipo SPI. Primero le pide al usuario el tiempo de adquisición y establece la comunicación serial con el Arduino para leer los datos de la señal. Luego, muestra la señal en tiempo real mientras la va guardando. Una vez termina la adquisición, la señal se centra (se elimina el nivel DC), se normaliza entre 0 y 1 y se suaviza para reducir ruido. Después aplica el llamado “método del montañero”, que básicamente detecta subidas y bajadas en la señal para identificar los máximos (picos del pulso) y mínimos (inicio del pulso). Con estos puntos, el código calcula un valor de SPI por cada latido usando la diferencia entre el valor máximo y mínimo de cada pulso, lo que refleja cambios en la amplitud de la señal. Finalmente, muestra los resultados en consola (como el SPI promedio) y genera una gráfica donde se visualiza la señal junto con los puntos detectados, permitiendo analizar cómo varía el pulso en el tiempo.
 
+## Código en Arduino : 
+
+```bash
+#include <Wire.h>
+#include "MAX30105.h"
+
+MAX30105 particleSensor;
+
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("Initializing...");
+
+  // Initialize sensor
+  if (!particleSensor.begin(Wire, I2C_SPEED_FAST)) //Use default I2C port, 400kHz speed
+  {
+    Serial.println("MAX30105 was not found. Please check wiring/power. ");
+    while (1);
+  }
+
+  //Setup to sense a nice looking saw tooth on the plotter
+  byte ledBrightness = 0x1F; //Options: 0=Off to 255=50mA
+  byte sampleAverage = 8; //Options: 1, 2, 4, 8, 16, 32
+  byte ledMode = 3; //Options: 1 = Red only, 2 = Red + IR, 3 = Red + IR + Green
+  int sampleRate = 100; //Options: 50, 100, 200, 400, 800, 1000, 1600, 3200
+  int pulseWidth = 411; //Options: 69, 118, 215, 411
+  int adcRange = 4096; //Options: 2048, 4096, 8192, 16384
+
+  particleSensor.setup(ledBrightness, sampleAverage, ledMode, sampleRate, pulseWidth, adcRange); //Configure sensor with these settings
+
+  //Arduino plotter auto-scales annoyingly. To get around this, pre-populate
+  //the plotter with 500 of an average reading from the sensor
+
+  //Take an average of IR readings at power up
+  const byte avgAmount = 64;
+  long baseValue = 0;
+  for (byte x = 0 ; x < avgAmount ; x++)
+  {
+    baseValue += particleSensor.getIR(); //Read the IR value
+  }
+  baseValue /= avgAmount;
+
+  //Pre-populate the plotter so that the Y scale is close to IR values
+  for (int x = 0 ; x < 500 ; x++)
+    Serial.println(baseValue);
+}
+
+void loop()
+{
+  Serial.println(particleSensor.getIR()); //Send raw data to plotter
+}
+```
+Este código de Arduino tiene como objetivo adquirir la señal PPG utilizando el sensor MAX30105 y enviarla en tiempo real al computador a través del puerto serial. Primero, en la función setup(), se inicializa la comunicación serial y el sensor mediante I2C; si el sensor no se detecta, el programa se detiene. Luego, se configuran parámetros importantes como el brillo del LED, el número de muestras promediadas, el modo de LEDs (rojo, infrarrojo y verde), la frecuencia de muestreo y el rango del ADC, lo cual determina la calidad y resolución de la señal. Después, el código toma varias lecturas iniciales para calcular un valor promedio de la señal IR y lo envía repetidamente al plotter serial, con el fin de estabilizar la escala de la gráfica. Finalmente, en el loop(), el programa lee continuamente el valor de la señal infrarroja (getIR()), que corresponde a la señal PPG, y la envía por el puerto serial, permitiendo visualizarla en tiempo real en el computador para su posterior análisis.
+
 ## Gráficas : 
+
+<img width="761" height="461" alt="image" src="https://github.com/user-attachments/assets/741f9737-5aad-4cc4-98d5-6a5d05f563c3" /> 
+Gráfica PPG a tiempo real.
+
+<img width="777" height="443" alt="image" src="https://github.com/user-attachments/assets/7d4c715a-6153-48ee-821d-9a69605555a5" />
+Cáptura SPI  a tiempo real cada 10 segundos.
 
 ## Analísis : 
 
