@@ -328,14 +328,32 @@ Este código de Arduino tiene como objetivo adquirir la señal PPG utilizando el
 ## Gráficas : 
 
 <img width="761" height="461" alt="image" src="https://github.com/user-attachments/assets/741f9737-5aad-4cc4-98d5-6a5d05f563c3" /> 
+
 Gráfica PPG a tiempo real.
 
 <img width="777" height="443" alt="image" src="https://github.com/user-attachments/assets/7d4c715a-6153-48ee-821d-9a69605555a5" />
+
 Cáptura SPI  a tiempo real cada 10 segundos.
 
 ## Analísis : 
 
+El comportamiento del índice pletismográfico quirúrgico (SPI) a lo largo del tiempo evidencia tres fases claramente diferenciables: una fase inicial de reposo (0–40 s), una fase de estímulo correspondiente a la aplicación del Cold Pressor Test (40–80 s) y una fase de recuperación posterior (>80 s). En la primera ventana (0–10 s), se observa un valor de SPI relativamente bajo (0.165), lo cual puede atribuirse tanto a condiciones de reposo como a la estabilización inicial del sistema de medición. Sin embargo, a partir de la segunda ventana, los valores aumentan significativamente (≈0.85), lo que sugiere una mayor sensibilidad del sistema una vez estabilizada la señal.
+
+Durante la fase previa al estímulo (hasta el segundo 40), el SPI presenta valores elevados y relativamente constantes (entre 0.78 y 0.86), lo cual podría indicar que el sistema es sensible a pequeñas variaciones en la señal PPG o que existe un nivel basal de activación simpática en el sujeto. No obstante, es a partir de la ventana correspondiente al intervalo de 40–50 s donde se inicia la aplicación del Cold Pressor Test, momento en el cual se observa una tendencia a la disminución progresiva del SPI (de ≈0.78 a ≈0.61 en ventanas posteriores).
+
+Este comportamiento puede explicarse fisiológicamente, ya que el Cold Pressor Test induce una respuesta simpática caracterizada por vasoconstricción periférica. Esta vasoconstricción reduce la amplitud de la señal PPG, lo cual afecta directamente el cálculo del SPI basado en la diferencia relativa entre máximos y mínimos. En este caso particular, la disminución del SPI durante el estímulo sugiere que la métrica implementada es altamente dependiente de la amplitud de la señal y no necesariamente refleja de forma directa el aumento de la actividad simpática, lo que constituye una limitación del modelo utilizado.
+
+En la fase posterior al estímulo (después de 80 s), se observa que el SPI tiende a estabilizarse en valores intermedios (≈0.56 – 0.72), lo que indica un proceso de recuperación fisiológica del sujeto. Este comportamiento es consistente con la disminución progresiva de la activación simpática una vez retirado el estímulo frío, permitiendo la restauración del flujo sanguíneo periférico y, por ende, de la amplitud de la señal PPG.
+
+En cuanto al número de latidos detectados, se evidencia un incremento durante la aplicación del estímulo (hasta 13 latidos por ventana), lo cual es coherente con una posible elevación de la frecuencia cardíaca inducida por el CPT. Este resultado respalda la presencia de una respuesta autonómica al estímulo aplicado. Sin embargo, la variabilidad en la detección de latidos también sugiere la influencia de ruido o limitaciones en el algoritmo de detección.
+
+La gráfica de la señal PPG muestra una señal suavizada y normalizada, donde se identifican correctamente los máximos sistólicos y los pies del pulso. No obstante, la baja variabilidad en amplitud observada en la gráfica indica que el proceso de normalización reduce la capacidad de visualizar cambios fisiológicos reales, lo que impacta directamente en la interpretación del SPI.
+
+En conjunto, los resultados demuestran que el sistema desarrollado es capaz de captar cambios fisiológicos asociados a la aplicación del Cold Pressor Test, evidenciados en la variación del SPI y en el número de latidos detectados. Sin embargo, también se identifican limitaciones importantes en la forma en que se calcula el índice, ya que este no refleja completamente el comportamiento esperado de la respuesta simpática. Esto sugiere la necesidad de incorporar parámetros adicionales o mejorar el procesamiento de la señal para obtener una estimación más precisa del estado nociceptivo.
+
 ## Conclusiones : 
+
+En conclusión, el desarrollo de la práctica permitió implementar de manera exitosa un sistema de adquisición y procesamiento de la señal fotopletismográfica (PPG) para la estimación de un índice tipo SPI en condiciones ambulatorias, evidenciando la relación entre la señal periférica y la actividad del sistema nervioso autónomo. A partir de los resultados obtenidos, se logró observar una variación del SPI asociada a la aplicación del Cold Pressor Test, reflejando cambios fisiológicos como la vasoconstricción periférica y el aumento de la actividad simpática, lo cual valida la sensibilidad del sistema ante estímulos nociceptivos controlados. No obstante, también se identificaron limitaciones importantes, especialmente en el método de cálculo del SPI basado únicamente en la amplitud de la señal y en el efecto de la normalización, lo que impide una correspondencia directa con los índices clínicos reales. Asimismo, la variabilidad en la detección de latidos y la influencia del ruido resaltan la necesidad de mejorar los algoritmos de procesamiento y de incorporar múltiples parámetros fisiológicos para una estimación más precisa. En conjunto, la práctica permitió no solo comprender los fundamentos de la PPG y su aplicación en el monitoreo biomédico, sino también analizar críticamente el alcance y las limitaciones de los sistemas desarrollados, aportando una base sólida para futuras mejoras en el diseño de herramientas de evaluación no invasiva del estado autonómico y nociceptivo.
 
 ## Preguntas para la discusión  : 
 
