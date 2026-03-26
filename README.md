@@ -291,4 +291,16 @@ En comparación, el SPI es más sensible a cambios rápidos asociados al dolor o
 
 ## Referencias : 
 
+- Allen, J. (2007). Photoplethysmography and its application in clinical physiological measurement. Physiological Measurement, 28(3), R1–R39. https://doi.org/10.1088/0967-3334/28/3/R01
 
+- Challoner, A. V. J. (1979). Photoelectric plethysmography for estimating cutaneous blood flow. En J. S. Rolfe (Ed.), Non-invasive physiological measurements (pp. 125–151). Academic Press.
+
+- Huiku, M., Uutela, K., van Gils, M., Korhonen, I., Kymäläinen, M., Meriläinen, P., Paloheimo, M., Rantanen, M., Takala, P., Viertiö-Oja, H., & Yli-Hankala, A. (2007). Assessment of surgical stress during general anaesthesia. British Journal of Anaesthesia, 98(4), 447–455. https://doi.org/10.1093/bja/aem004
+
+- Ledowski, T. (2019). Objective monitoring of nociception: A review of current commercial solutions. British Journal of Anaesthesia, 123(2), e312–e321. https://doi.org/10.1016/j.bja.2019.03.024
+
+- Mitchell, L. A., MacDonald, R. A., & Brodie, E. E. (2004). Temperature and the cold pressor test. The Journal of Pain, 5(4), 233–237. https://doi.org/10.1016/j.jpain.2004.03.004
+
+- Tamura, T., Maeda, Y., Sekine, M., & Yoshida, M. (2014). Wearable photoplethysmographic sensors—Past and present. Electronics, 3(2), 282–302. https://doi.org/10.3390/electronics3020282
+
+ - Webster, J. G. (2010). Medical instrumentation: Application and design (4th ed.). Wiley.
